@@ -600,3 +600,7 @@ details p { color: var(--muted); padding-bottom: 22px; margin: 0; }
   .frame3d { margin-left: 30px; margin-right: 6px; }
   .footer__inner { flex-direction: column; align-items: flex-start; }
 }
+
+/* длинный заголовок «Услуги» и акцент в лиде */
+.section__head h2.h2--long { font-size: clamp(26px, 3vw, 40px); max-width: 24ch; }
+.lead__accent { display: block; margin-top: 10px; color: var(--accent); font-weight: 700; }
