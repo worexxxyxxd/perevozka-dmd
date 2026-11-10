@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PEREVOZKA_DMD — грузоперевозки и переезды по Москве, МО и России 24/7</title>
+  <meta name="description" content="Грузоперевозки на Газели 24/7: квартирные, дачные и офисные переезды, доставка на Wildberries, OZON, Яндекс, стройматериалы. Опыт более 15 лет. Цена по договорённости, без наценки за срочность.">
+  <meta name="theme-color" content="#070d18">
+  <meta property="og:title" content="PEREVOZKA_DMD — грузоперевозки и переезды 24/7, цена по договорённости">
+  <meta property="og:description" content="Москва, Московская область и любой регион России. Грузчики, все виды погрузки, работаем с юрлицами и ИП.">
+  <meta property="og:image" content="img/trucks.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23ff7a1a'/%3E%3Cpath d='M6 10h12v10H6zM18 13h4l4 4v3h-8z' fill='%230e1726'/%3E%3Ccircle cx='10' cy='22' r='2.5' fill='%230e1726'/%3E%3Ccircle cx='22' cy='22' r='2.5' fill='%230e1726'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"></div>
+
+<!-- ============ ШАПКА ============ -->
+<header class="header" id="top">
+  <div class="header__pill">
+    <a href="#top" class="logo" aria-label="На главную">
+      <span class="logo__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32"><path d="M4 9h14v12H4zM18 13h5l5 5v3H18z"/><circle cx="9" cy="23" r="3"/><circle cx="23" cy="23" r="3"/></svg>
+      </span>
+      <span class="logo__text"><b>PEREVOZKA<span>_DMD</span></b><small>Грузоперевозки 24/7</small></span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="#services">Услуги</a>
+      <a href="#loading">Погрузка</a>
+      <a href="#prices">Стоимость</a>
+      <a href="#about">О нас</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <a class="header__phone" href="tel:+79262823457"><i class="dot"></i>+7 926 282-34-57</a>
+
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ ПЕРВЫЙ ЭКРАН: 3D-СЦЕНА ============ -->
+<section class="hero" id="hero">
+  <div class="hero__sky" aria-hidden="true"><span class="stars"></span><span class="glow glow--1"></span><span class="glow glow--2"></span></div>
+
+  <div class="container hero__inner">
+    <div class="hero__text">
+      <p class="eyebrow"><span class="live"></span>Работаем круглосуточно · 15+ лет</p>
+      <h1>
+        <span class="h1-line">Грузоперевозки</span>
+        <span class="h1-line">и переезды</span>
+        <span class="h1-line x3d">без нервов</span>
+      </h1>
+      <p class="lead">Квартирные, дачные и офисные переезды, доставка на склады и маркетплейсы. С грузчиками и без — по Москве, области и всей России.</p>
+
+      <div class="hero__cta">
+        <a class="btn3d btn3d--accent" href="tel:+79262823457">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+          Позвонить
+        </a>
+        <a class="btn3d btn3d--glass" href="#prices">Узнать стоимость</a>
+      </div>
+
+      <ul class="hero__chips">
+        <li>Цена по договорённости</li>
+        <li>Без наценки за срочность</li>
+        <li>Пропуск в центр Москвы</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="hero__scene" id="heroScene">
+    <canvas id="heroCanvas" role="img" aria-label="Газель PEREVOZKA_DMD едет по ночной дороге"></canvas>
+    <img class="hero__fallback" src="img/trucks.webp" alt="Наши Газели" hidden>
+    <div class="tag3d tag3d--a"><span class="tag3d__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V5zm-1.2 14.2-3.5-3.5 1.4-1.4 2.1 2.1 4.6-4.6 1.4 1.4z"/></svg></span><span><b>Документы проверены</b><small>по паспорту и видео</small></span></div>
+    <div class="tag3d tag3d--b"><b class="big">24/7</b><small>подача машины<br>в любое время</small></div>
+  </div>
+</section>
+
+<!-- ============ БЕГУЩАЯ ЛЕНТА ============ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <span>Квартирные переезды</span><span>Дачные переезды</span><span>Офисные переезды</span><span>Wildberries</span><span>OZON</span><span>Яндекс Маркет</span><span>Стройматериалы</span><span>Грузчики</span><span>Вывоз мебели</span><span>Межгород</span>
+    <span>Квартирные переезды</span><span>Дачные переезды</span><span>Офисные переезды</span><span>Wildberries</span><span>OZON</span><span>Яндекс Маркет</span><span>Стройматериалы</span><span>Грузчики</span><span>Вывоз мебели</span><span>Межгород</span>
+  </div>
+</div>
+
+<!-- ============ ЦИФРЫ ============ -->
+<section class="facts">
+  <div class="container facts__grid">
+    <div class="stat card3d" data-tilt><b data-depth><span data-count="15">15</span>+</b><span>лет в грузоперевозках</span></div>
+    <div class="stat card3d" data-tilt><b data-depth>24/7</b><span>без выходных и праздников</span></div>
+    <div class="stat card3d" data-tilt><b data-depth data-count="3">3</b><span>вида погрузки</span></div>
+    <div class="stat card3d" data-tilt><b data-depth>РФ</b><span>любой регион России</span></div>
+  </div>
+</section>
+
+<!-- ============ УСЛУГИ ============ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">Услуги</p>
+      <h2>Перевезём всё — от&nbsp;дивана до&nbsp;<span class="x3d-sm">паллет на&nbsp;склад</span></h2>
+    </div>
+
+    <div class="services">
+      <article class="service card3d service--hero" data-tilt>
+        <div class="icon3d" data-depth><svg viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v10h-6v-6H9v6H3z"/></svg></div>
+        <h3 data-depth>Квартирные переезды</h3>
+        <p>Аккуратно разберём, упакуем, вынесем и поднимем на этаж. Мебель, техника, коробки — всё доедет целым.</p>
+      </article>
+      <article class="service card3d" data-tilt>
+        <div class="icon3d" data-depth><svg viewBox="0 0 24 24"><path d="M12 3 2 10h3v10h14V10h3zm-1 15v-4h2v4zM7 18v-7h2v7zm8 0v-7h2v7z"/></svg></div>
+        <h3 data-depth>Дачные переезды</h3>
+        <p>Отвезём вещи на дачу весной и заберём осенью.</p>
+      </article>
+      <article class="service card3d" data-tilt>
+        <div class="icon3d" data-depth><svg viewBox="0 0 24 24"><path d="M4 21V3h10v4h6v14zm2-2h3v-3H6zm0-5h3v-3H6zm0-5h3V6H6zm5 10h3v-3h-3zm0-5h3v-3h-3zm5 5h2v-3h-2zm0-5h2v-3h-2z"/></svg></div>
+        <h3 data-depth>Офисные переезды</h3>
+        <p>Переезд компании быстро и без простоев — в том числе ночью и в выходные.</p>
+      </article>
+      <article class="service card3d" data-tilt>
+        <div class="icon3d" data-depth><svg viewBox="0 0 24 24"><path d="M3 7 12 3l9 4v10l-9 4-9-4zm9 2.2L5.5 6.6 12 9.4l6.5-2.8zM5 8.5v7.2l6 2.6v-7.2zm8 9.8 6-2.6V8.5l-6 2.6z"/></svg></div>
+        <h3 data-depth>Маркетплейсы</h3>
+        <p>Доставка на склады Wildberries, OZON, Яндекс Маркета. Знаем требования к приёмке.</p>
+      </article>
+      <article class="service card3d" data-tilt>
+        <div class="icon3d" data-depth><svg viewBox="0 0 24 24"><path d="M2 20h20v-2H2zm2-4h4v-4H4zm6 0h4V8h-4zm6 0h4V4h-4z"/></svg></div>
+        <h3 data-depth>Коммерческие перевозки</h3>
+        <p>Доставка продукции на производство, перемещение между складами, регулярные рейсы по договору.</p>
+      </article>
+      <article class="service card3d" data-tilt>
+        <div class="icon3d" data-depth><svg viewBox="0 0 24 24"><path d="M2 20h20v-3H2zm2-5h7v-3H4zm9 0h7v-3h-7zM7 10h10V7H7z"/></svg></div>
+        <h3 data-depth>Стройматериалы</h3>
+        <p>Доставим на объект: сыпучие в мешках, плитку, доски, сантехнику.</p>
+      </article>
+      <article class="service card3d" data-tilt>
+        <div class="icon3d" data-depth><svg viewBox="0 0 24 24"><path d="M11 2h2l.4 2.2c.6.2 1.2.4 1.7.7l1.8-1.3 1.4 1.4-1.3 1.8c.3.5.6 1.1.7 1.7L20 9v2l-2.2.4c-.2.6-.4 1.2-.7 1.7l1.3 1.8-1.4 1.4-1.8-1.3c-.5.3-1.1.6-1.7.7L13 18h-2l-.4-2.2c-.6-.2-1.2-.4-1.7-.7l-1.8 1.3-1.4-1.4L7 13.2c-.3-.5-.6-1.1-.7-1.7L4 11V9l2.2-.4c.2-.6.4-1.2.7-1.7L5.6 5.1 7 3.7l1.8 1.3c.5-.3 1.1-.6 1.7-.7zm1 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM4 20h16v2H4z"/></svg></div>
+        <h3 data-depth>Запчасти</h3>
+        <p>Доставка запчастей для автомобильного транспорта и спецтехники.</p>
+      </article>
+      <article class="service card3d" data-tilt>
+        <div class="icon3d" data-depth><svg viewBox="0 0 24 24"><path d="M6 7h12l-1 14H7zm3-4h6l1 2h4v2H4V5h4z"/></svg></div>
+        <h3 data-depth>Вывоз и утилизация</h3>
+        <p>Вывезем старую мебель и оргтехнику — освободим квартиру, офис или склад.</p>
+      </article>
+      <article class="service card3d service--accent" data-tilt>
+        <div class="icon3d icon3d--light" data-depth><svg viewBox="0 0 24 24"><path d="M9 4a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm7 1a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 19c0-3.3 2.7-6 6-6s6 2.7 6 6zm13 0c0-1.7-.6-3.3-1.6-4.5A5 5 0 0 1 21 19z"/></svg></div>
+        <h3 data-depth>Грузчики</h3>
+        <p>Профессиональные грузчики с многолетним стажем. Справляются даже со сложными задачами — пианино, сейфы, узкие лестницы.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ВИДЫ ПОГРУЗКИ (3D-иллюстрации) ============ -->
+<section class="section section--deep" id="loading">
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">Погрузка</p>
+      <h2>Загрузим так, как удобно <span class="x3d-sm">вам</span></h2>
+      <p class="muted">Все три вида погрузки — подберём способ под ваш груз и место, где стоит машина.</p>
+    </div>
+
+    <div class="loads">
+      <article class="load card3d" data-tilt>
+        <div class="iso-scene" aria-hidden="true">
+          <div class="iso iso--rear">
+            <div class="cuboid cuboid--box" style="--w:150px;--h:86px;--d:78px"></div>
+            <div class="cuboid cuboid--cab" style="--w:44px;--h:58px;--d:74px;--x:-97px;--y:14px"></div>
+            <span class="wheel" style="--x:-80px"></span><span class="wheel" style="--x:40px"></span>
+          </div>
+        </div>
+        <h3>Задняя</h3>
+        <p>Распашные двери во всю ширину кузова. Самый привычный способ для мебели, техники и коробок.</p>
+      </article>
+
+      <article class="load card3d" data-tilt>
+        <div class="iso-scene" aria-hidden="true">
+          <div class="iso iso--side">
+            <div class="cuboid cuboid--box" style="--w:150px;--h:86px;--d:78px"></div>
+            <div class="cuboid cuboid--cab" style="--w:44px;--h:58px;--d:74px;--x:-97px;--y:14px"></div>
+            <span class="wheel" style="--x:-80px"></span><span class="wheel" style="--x:40px"></span>
+          </div>
+        </div>
+        <h3>Боковая</h3>
+        <p>Открываем борт сбоку — когда к машине не подъехать задом или груз подают погрузчиком на паллетах.</p>
+      </article>
+
+      <article class="load card3d" data-tilt>
+        <div class="iso-scene" aria-hidden="true">
+          <div class="iso iso--top">
+            <div class="cuboid cuboid--box" style="--w:150px;--h:86px;--d:78px"></div>
+            <div class="cuboid cuboid--cab" style="--w:44px;--h:58px;--d:74px;--x:-97px;--y:14px"></div>
+            <span class="wheel" style="--x:-80px"></span><span class="wheel" style="--x:40px"></span>
+            <div class="drop"><div class="cuboid cuboid--parcel" style="--w:40px;--h:30px;--d:36px"></div></div>
+          </div>
+        </div>
+        <h3>Верхняя</h3>
+        <p>Открываем крышу и грузим сверху краном или манипулятором — для крупногабаритных и тяжёлых грузов.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ СТОИМОСТЬ ============ -->
+<section class="section" id="prices">
+  <div class="container">
+    <div class="price-intro">
+      <div>
+        <p class="eyebrow">Стоимость</p>
+        <h2>Цена — <span class="x3d-sm">по&nbsp;договорённости</span></h2>
+      </div>
+      <div class="price-intro__text">
+        <p>У нас нет единого прайса «для всех», и это сделано в ваших интересах. Двух одинаковых перевозок не бывает: переезд однокомнатной квартиры с лифтом и вывоз мебели с пятого этажа без лифта — совершенно разные задачи. Поэтому стоимость мы обсуждаем с каждым клиентом лично — по телефону или в мессенджере.</p>
+        <p>Вы рассказываете, что нужно перевезти, а мы предлагаем честную цену под вашу задачу. Без «машины у подъезда за копейки», к которой потом добавляются этажи, ожидание и грузчики. Договорились — работаем по договорённости.</p>
+      </div>
+    </div>
+
+    <div class="price-grid">
+      <div class="card3d price-card">
+        <h3>Что влияет на стоимость</h3>
+        <ul class="factors">
+          <li><b>Объём и характер груза</b><span>Коробки, мебель, техника, стройматериалы, хрупкие или тяжёлые вещи</span></li>
+          <li><b>Маршрут и расстояние</b><span>По Москве, в область или в другой регион России</span></li>
+          <li><b>Время работы</b><span>Сколько займут погрузка, дорога и выгрузка</span></li>
+          <li><b>Грузчики</b><span>Нужны ли они и сколько человек потребуется</span></li>
+          <li><b>Этажи и лифт</b><span>Подъём и спуск вручную, узкие лестницы, переноска на расстояние</span></li>
+          <li><b>Дополнительные работы</b><span>Разборка и сборка мебели, упаковка, вывоз и утилизация</span></li>
+        </ul>
+      </div>
+
+      <div class="card3d price-card price-card--accent">
+        <h3>Как узнать цену</h3>
+        <ol class="howto">
+          <li><b>Позвоните или напишите</b><span>Отвечаем круглосуточно, без выходных</span></li>
+          <li><b>Расскажите о задаче</b><span>Что везём, откуда и куда, когда, этаж и есть ли лифт. Можно прислать фото вещей — так расчёт будет точнее</span></li>
+          <li><b>Получите предложение</b><span>Назовём стоимость и ответим на все вопросы. Консультация бесплатная и ни к чему не обязывает</span></li>
+          <li><b>Договорились — едем</b><span>Обговорённая сумма не меняется, если объём и условия работы остались прежними</span></li>
+        </ol>
+        <div class="price-card__actions">
+          <a class="btn3d btn3d--dark" href="tel:+79262823457">Позвонить</a>
+          <a class="btn3d btn3d--wa" href="https://wa.me/79262823457?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D1%81%D1%82%D0%BE%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C%20%D0%BF%D0%B5%D1%80%D0%B5%D0%B2%D0%BE%D0%B7%D0%BA%D0%B8." target="_blank" rel="noopener">Написать в WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <ul class="badges">
+      <li>Без наценки за срочность</li>
+      <li>Наличный и безналичный расчёт</li>
+      <li>Юрлица и ИП (без НДС)</li>
+      <li>Договор на постоянное сотрудничество</li>
+    </ul>
+    <p class="note">Для компаний, которым перевозки нужны регулярно, заключаем договор на постоянной основе и заранее фиксируем условия сотрудничества.</p>
+  </div>
+</section>
+
+<!-- ============ О НАС ============ -->
+<section class="section section--deep" id="about">
+  <div class="container about">
+    <figure class="frame3d" data-tilt>
+      <span class="frame3d__layer frame3d__layer--2" aria-hidden="true"></span>
+      <span class="frame3d__layer frame3d__layer--1" aria-hidden="true"></span>
+      <img src="img/night.webp" alt="Наши Газели ночью у исторического здания в центре города" loading="lazy" width="960" height="960" data-depth>
+      <span class="frame3d__badge" data-depth><i></i>Работаем ночью</span>
+    </figure>
+
+    <div class="about__text">
+      <p class="eyebrow">О нас</p>
+      <h2>15 лет опыта и клиенты, которые <span class="x3d-sm">возвращаются</span></h2>
+      <p>Наша компания занимается грузоперевозками более 15 лет. За это время мы накопили огромный опыт и множество благодарных клиентов. У нас работают только квалифицированные сотрудники, знающие и любящие своё дело.</p>
+      <p>Профессиональные водители готовы поехать на любые расстояния в пределах Российской Федерации, а грузчики с многолетним стажем порой выполняют сложнейшие задачи, поставленные клиентами.</p>
+      <blockquote class="card3d">Люди, которые заказывают наши услуги, возвращаются к нам снова и снова. Наши ребята работают на результат и на долгое сотрудничество.</blockquote>
+
+      <div class="perks">
+        <div class="perk"><b>Экономим время</b><span>Подача машины в кратчайшие сроки, работаем круглосуточно</span></div>
+        <div class="perk"><b>Бережём нервы</b><span>Всё организуем сами — от погрузки до выгрузки</span></div>
+        <div class="perk"><b>Бережём бюджет</b><span>Цена под вашу задачу — без лишних услуг и наценок</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ПОЧЕМУ МЫ ============ -->
+<section class="section">
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">Почему мы</p>
+      <h2>Надёжный перевозчик — это не&nbsp;просто машина у&nbsp;подъезда</h2>
+    </div>
+    <div class="why">
+      <div class="why__item card3d" data-tilt><span class="num3d" data-depth>01</span><h3>Проверенные документы</h3><p>Личность исполнителя подтверждена по паспорту и видео.</p></div>
+      <div class="why__item card3d" data-tilt><span class="num3d" data-depth>02</span><h3>Работаем по договору</h3><p>Заключаем договоры на постоянной основе с компаниями и ИП.</p></div>
+      <div class="why__item card3d" data-tilt><span class="num3d" data-depth>03</span><h3>Пропуск в центр</h3><p>Можем заехать в центр Москвы — не придётся носить вещи за квартал.</p></div>
+      <div class="why__item card3d" data-tilt><span class="num3d" data-depth>04</span><h3>Любые расстояния</h3><p>Москва, Московская область и любой регион России.</p></div>
+      <div class="why__item card3d" data-tilt><span class="num3d" data-depth>05</span><h3>Круглосуточно</h3><p>Без выходных. Можно заказать машину на ночь или на раннее утро.</p></div>
+      <div class="why__item card3d" data-tilt><span class="num3d" data-depth>06</span><h3>Консультация бесплатно</h3><p>Подскажем, сколько нужно времени и людей, чтобы вы не переплатили.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ КАК РАБОТАЕМ ============ -->
+<section class="section section--deep" id="steps">
+  <div class="container">
+    <div class="section__head">
+      <p class="eyebrow">Как мы работаем</p>
+      <h2>Пять простых шагов</h2>
+    </div>
+    <ol class="steps">
+      <li><span class="step-cube" aria-hidden="true"><i>1</i></span><h3>Заявка</h3><p>Звоните или пишете — в любое время суток.</p></li>
+      <li><span class="step-cube" aria-hidden="true"><i>2</i></span><h3>Договариваемся</h3><p>Обсуждаем задачу и согласуем цену.</p></li>
+      <li><span class="step-cube" aria-hidden="true"><i>3</i></span><h3>Подача машины</h3><p>Приезжаем в согласованное время.</p></li>
+      <li><span class="step-cube" aria-hidden="true"><i>4</i></span><h3>Погрузка и доставка</h3><p>Аккуратно грузим, везём и выгружаем.</p></li>
+      <li><span class="step-cube step-cube--accent" aria-hidden="true"><i>5</i></span><h3>Оплата</h3><p>Наличными или по безналу — как удобно.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq">
+  <div class="container faq">
+    <div class="section__head">
+      <p class="eyebrow">Вопросы</p>
+      <h2>Частые вопросы</h2>
+      <p class="muted">Не нашли ответа? Позвоните — всегда рады проконсультировать.</p>
+    </div>
+    <div class="faq__list">
+      <details open>
+        <summary>Почему на сайте нет прайса?</summary>
+        <p>Потому что каждая перевозка уникальна: объём, расстояние, этажи, грузчики — всё влияет на итог. Фиксированный прайс либо завышает цену для простых заказов, либо обрастает доплатами на месте. Мы обсуждаем стоимость лично по телефону или в WhatsApp и называем честную цену под вашу задачу.</p>
+      </details>
+      <details>
+        <summary>Работаете с организациями?</summary>
+        <p>Да, работаем с юрлицами и ИП, заключаем договоры на постоянной основе. Возможен безналичный расчёт (без НДС).</p>
+      </details>
+      <details>
+        <summary>Сможете заехать в центр Москвы?</summary>
+        <p>Да, у нас есть пропуск в центр.</p>
+      </details>
+      <details>
+        <summary>Возите в другие города?</summary>
+        <p>Да, в любой регион России. Стоимость междугородней перевозки обсуждаем индивидуально — позвоните или напишите.</p>
+      </details>
+      <details>
+        <summary>Какие виды погрузки возможны?</summary>
+        <p>Все: задняя, боковая и верхняя.</p>
+      </details>
+      <details>
+        <summary>Вывозите старую мебель и технику?</summary>
+        <p>Да, вывозим и утилизируем старую мебель и оргтехнику.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ КОНТАКТЫ ============ -->
+<section class="section contacts" id="contacts">
+  <div class="floor" aria-hidden="true"><div class="floor__grid"></div></div>
+  <div class="container contact">
+    <div class="contact__info">
+      <p class="eyebrow">Контакты</p>
+      <h2>Звоните — всегда рады <span class="x3d-sm">помочь!</span></h2>
+      <p class="muted">Ответим на вопросы, подскажем и рассчитаем стоимость. Или оставьте заявку — она придёт нам в WhatsApp.</p>
+
+      <a class="contact__phone" href="tel:+79262823457">+7 926 282-34-57</a>
+      <p class="contact__person">Андрей, круглосуточно</p>
+
+      <ul class="contact__list">
+        <li><b>География</b><span>Москва, Московская область, любой регион России</span></li>
+        <li><b>Режим работы</b><span>24/7, без выходных</span></li>
+        <li><b>Стоимость</b><span>По договорённости — обсуждаем по телефону или в WhatsApp</span></li>
+        <li><b>Оплата</b><span>Наличный и безналичный расчёт</span></li>
+      </ul>
+    </div>
+
+    <form class="request card3d" id="request" novalidate>
+      <h3>Заявка на перевозку</h3>
+      <label class="input">
+        <span>Ваше имя</span>
+        <input type="text" name="name" placeholder="Например, Ирина" required>
+      </label>
+      <label class="input">
+        <span>Телефон</span>
+        <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" inputmode="tel" required>
+      </label>
+      <div class="input-row">
+        <label class="input">
+          <span>Откуда</span>
+          <input type="text" name="from" placeholder="Адрес или район">
+        </label>
+        <label class="input">
+          <span>Куда</span>
+          <input type="text" name="to" placeholder="Адрес или город">
+        </label>
+      </div>
+      <label class="input">
+        <span>Что везём</span>
+        <textarea name="cargo" rows="3" placeholder="Например: 2-комнатная квартира, нужен 1 грузчик"></textarea>
+      </label>
+      <p class="form-error" id="formError" role="alert"></p>
+      <button class="btn3d btn3d--accent btn3d--block" type="submit">Отправить заявку в WhatsApp</button>
+      <p class="request__legal">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <b>PEREVOZKA<span>_DMD</span></b>
+      <span>Грузоперевозки, переезды и доставка грузов. Москва, МО и вся Россия.</span>
+    </div>
+    <nav class="footer__nav">
+      <a href="#services">Услуги</a>
+      <a href="#loading">Погрузка</a>
+      <a href="#prices">Стоимость</a>
+      <a href="#about">О нас</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a class="footer__phone" href="tel:+79262823457">+7 926 282-34-57</a>
+  </div>
+  <div class="container footer__copy">© <span id="year">2026</span> PEREVOZKA_DMD. Работаем 24/7.</div>
+</footer>
+
+<!-- Мобильная панель звонка -->
+<div class="mobile-bar">
+  <a class="btn3d btn3d--accent" href="tel:+79262823457">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
+    Позвонить
+  </a>
+  <a class="btn3d btn3d--wa" href="https://wa.me/79262823457" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+<script src="script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script src="hero3d.js" defer></script>
+</body>
+</html>
