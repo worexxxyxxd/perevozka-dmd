@@ -341,6 +341,7 @@ p { margin: 0 0 1em; }
 .price-card h3 { font-size: 22px; margin-bottom: 24px; }
 .factors { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 .factors li { position: relative; padding: 16px 16px 16px 52px; border-radius: 16px; background: rgba(255, 255, 255, .04); border: 1px solid var(--line); }
+.factors li:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .factors li::before {
   content: "✓"; position: absolute; left: 14px; top: 15px; width: 26px; height: 26px; border-radius: 9px;
   display: grid; place-items: center; font-size: 14px; font-weight: 900; color: #fff;
