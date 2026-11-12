@@ -106,7 +106,7 @@ if ('IntersectionObserver' in window && !reduceMotion) {
 
 // ===== Появление блоков при прокрутке =====
 const revealTargets = document.querySelectorAll(
-  '.section__head, .card3d, .about__text, .steps li, .price-intro, .badges, .contact__info, .shot'
+  '.section__head, .card3d, .about__text, .steps li, .price-intro, .badges, .contact__info'
 );
 if ('IntersectionObserver' in window) {
   revealTargets.forEach((el) => el.classList.add('reveal'));
@@ -118,40 +118,59 @@ if ('IntersectionObserver' in window) {
   revealTargets.forEach((el) => io.observe(el));
 }
 
-// ===== Автопарк: просмотр фото =====
-const lb = document.getElementById('lightbox');
-const shots = [...document.querySelectorAll('.shot')];
-if (lb && shots.length && typeof lb.showModal === 'function') {
-  const lbImg = lb.querySelector('img');
-  const lbCap = lb.querySelector('figcaption');
-  let cur = 0;
-  const show = (i) => {
-    cur = (i + shots.length) % shots.length;
-    const img = shots[cur].querySelector('img');
-    lbImg.src = img.currentSrc || img.src;
-    lbImg.alt = img.alt;
-    lbCap.textContent = shots[cur].querySelector('.shot__cap').textContent;
-    lbImg.style.animation = 'none'; void lbImg.offsetWidth; lbImg.style.animation = '';
+// ===== 3D-карусель с фото машин (как на сайте «Грибоедовъ») =====
+const carousel = document.querySelector('.carousel');
+if (carousel) {
+  const stage = carousel.querySelector('.carousel__stage');
+  const ring = carousel.querySelector('.carousel__ring');
+  const items = [...ring.querySelectorAll('.carousel__item')];
+  const n = items.length;
+  const step = 360 / n;
+  let angle = 0, target = 0, radius = 0, dragging = false, startX = 0, startAngle = 0, lastMove = 0, visible = true;
+
+  const layout = () => {
+    const w = Math.round(Math.min(330, Math.max(190, stage.clientWidth * (stage.clientWidth < 520 ? 0.6 : 0.52))));
+    carousel.style.setProperty('--cw', `${w}px`);
+    radius = Math.round((w / 2) / Math.tan(Math.PI / n)) + 14;
+    items.forEach((it, i) => { it.style.transform = `rotateY(${i * step}deg) translateZ(${radius}px)`; });
   };
-  shots.forEach((s, i) => s.addEventListener('click', () => { show(i); lb.showModal(); }));
-  lb.querySelector('.lightbox__prev').addEventListener('click', () => show(cur - 1));
-  lb.querySelector('.lightbox__next').addEventListener('click', () => show(cur + 1));
-  lb.querySelector('.lightbox__close').addEventListener('click', () => lb.close());
-  // клик мимо фото и кнопок закрывает
-  lb.addEventListener('click', (e) => { if (e.target === lb || e.target.classList.contains('lightbox__fig')) lb.close(); });
-  lb.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') show(cur - 1);
-    if (e.key === 'ArrowRight') show(cur + 1);
+  layout();
+  addEventListener('resize', layout);
+
+  const tick = () => {
+    if (visible) {
+      if (!dragging && Date.now() - lastMove > 2500) target -= 0.08; // медленно крутится сама
+      angle += (target - angle) * 0.08;
+      ring.style.transform = `translateZ(${-radius}px) rotateX(-4deg) rotateY(${angle}deg)`;
+    }
+    requestAnimationFrame(tick);
+  };
+  tick();
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([en]) => { visible = en.isIntersecting; }).observe(carousel);
+  }
+
+  stage.addEventListener('pointerdown', (e) => {
+    dragging = true; startX = e.clientX; startAngle = target;
+    stage.setPointerCapture(e.pointerId);
   });
-  // свайп на телефоне
-  let x0 = null;
-  lb.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
-  lb.addEventListener('touchend', (e) => {
-    if (x0 === null) return;
-    const dx = e.changedTouches[0].clientX - x0;
-    if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
-    x0 = null;
+  stage.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    target = startAngle + (e.clientX - startX) * 0.35;
+    lastMove = Date.now();
   });
+  const end = () => {
+    if (!dragging) return;
+    dragging = false;
+    target = Math.round(target / step) * step;
+    lastMove = Date.now();
+  };
+  stage.addEventListener('pointerup', end);
+  stage.addEventListener('pointercancel', end);
+
+  const go = (dir) => { target = Math.round(target / step) * step + dir * step; lastMove = Date.now(); };
+  carousel.querySelector('[data-prev]').addEventListener('click', () => go(1));
+  carousel.querySelector('[data-next]').addEventListener('click', () => go(-1));
 }
 
 // ===== Заявка → WhatsApp =====

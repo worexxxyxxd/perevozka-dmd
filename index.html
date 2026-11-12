@@ -34,7 +34,6 @@
       <a href="#loading">Погрузка</a>
       <a href="#prices">Стоимость</a>
       <a href="#about">О нас</a>
-      <a href="#fleet">Автопарк</a>
       <a href="#faq">Вопросы</a>
       <a href="#contacts">Контакты</a>
     </nav>
@@ -266,12 +265,25 @@
 <!-- ============ О НАС ============ -->
 <section class="section section--deep" id="about">
   <div class="container about">
-    <figure class="frame3d" data-tilt>
-      <span class="frame3d__layer frame3d__layer--2" aria-hidden="true"></span>
-      <span class="frame3d__layer frame3d__layer--1" aria-hidden="true"></span>
-      <img src="img/gazelles.webp" alt="Наши Газели-фургоны на дороге" loading="lazy" width="538" height="721" data-depth>
-      <span class="frame3d__badge" data-depth><i></i>Работаем 24/7</span>
-    </figure>
+    <div class="carousel" aria-roledescription="карусель" aria-label="Фото наших машин">
+      <div class="carousel__stage">
+        <div class="carousel__ring">
+          <figure class="carousel__item" style="--img:url(img/fleet-tent-front.webp)"><img src="img/fleet-tent-front.webp" alt="Синяя Газель-тент с белым обтекателем" draggable="false"></figure>
+          <figure class="carousel__item" style="--img:url(img/fleet-tent-side.webp)"><img src="img/fleet-tent-side.webp" alt="Газель-тент сбоку: длинный кузов под тентом" draggable="false"></figure>
+          <figure class="carousel__item" style="--img:url(img/fleet-road.webp)"><img src="img/fleet-road.webp" alt="Две Газели-фургона на дороге" draggable="false"></figure>
+          <figure class="carousel__item" style="--img:url(img/fleet-vans.webp)"><img src="img/fleet-vans.webp" alt="Синий и белый фургоны Газель" draggable="false"></figure>
+          <figure class="carousel__item" style="--img:url(img/fleet-tent-front.webp)" aria-hidden="true"><img src="img/fleet-tent-front.webp" alt="" draggable="false"></figure>
+          <figure class="carousel__item" style="--img:url(img/fleet-tent-side.webp)" aria-hidden="true"><img src="img/fleet-tent-side.webp" alt="" draggable="false"></figure>
+          <figure class="carousel__item" style="--img:url(img/fleet-road.webp)" aria-hidden="true"><img src="img/fleet-road.webp" alt="" draggable="false"></figure>
+          <figure class="carousel__item" style="--img:url(img/fleet-vans.webp)" aria-hidden="true"><img src="img/fleet-vans.webp" alt="" draggable="false"></figure>
+        </div>
+      </div>
+      <div class="carousel__controls">
+        <button class="carousel__btn" type="button" data-prev aria-label="Предыдущее фото"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+        <span class="carousel__hint">Потяните, чтобы покрутить</span>
+        <button class="carousel__btn" type="button" data-next aria-label="Следующее фото"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
 
     <div class="about__text">
       <p class="eyebrow">О нас</p>
@@ -288,50 +300,6 @@
     </div>
   </div>
 </section>
-
-<!-- ============ АВТОПАРК ============ -->
-<section class="section fleet-sec" id="fleet">
-  <div class="container">
-    <div class="section__head">
-      <p class="eyebrow">Автопарк</p>
-      <h2>Наши <span class="x3d-sm">Газели</span></h2>
-      <p class="muted">Тенты и фургоны — чистые, исправные и на ходу каждый день. Нажмите на фото, чтобы рассмотреть поближе.</p>
-    </div>
-
-    <div class="fleet">
-      <div class="fleet__row">
-        <button class="shot" type="button" style="--r:1.016" data-tilt>
-          <img src="img/fleet-tent-front.webp" alt="Синяя Газель-тент с белым обтекателем" width="825" height="812" loading="lazy">
-          <span class="shot__cap">Тент с обтекателем</span>
-        </button>
-        <button class="shot" type="button" style="--r:1.441" data-tilt>
-          <img src="img/fleet-tent-side.webp" alt="Газель-тент сбоку: длинный кузов под тентом" width="896" height="622" loading="lazy">
-          <span class="shot__cap">Тент снимается — грузим сбоку и сверху</span>
-        </button>
-      </div>
-      <div class="fleet__row">
-        <button class="shot" type="button" style="--r:1.875" data-tilt>
-          <img src="img/fleet-road.webp" alt="Две Газели-фургона на дороге" width="823" height="439" loading="lazy">
-          <span class="shot__cap">Всегда на ходу — подаём быстро</span>
-        </button>
-        <button class="shot" type="button" style="--r:1.676" data-tilt>
-          <img src="img/fleet-vans.webp" alt="Синий и белый фургоны Газель" width="677" height="404" loading="lazy">
-          <span class="shot__cap">Фургоны: вещи защищены от дождя и пыли</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<dialog class="lightbox" id="lightbox" aria-label="Фото автопарка">
-  <figure class="lightbox__fig">
-    <img src="" alt="">
-    <figcaption></figcaption>
-  </figure>
-  <button class="lightbox__btn lightbox__close" type="button" aria-label="Закрыть">✕</button>
-  <button class="lightbox__btn lightbox__prev" type="button" aria-label="Предыдущее фото">‹</button>
-  <button class="lightbox__btn lightbox__next" type="button" aria-label="Следующее фото">›</button>
-</dialog>
 
 <!-- ============ ПОЧЕМУ МЫ ============ -->
 <section class="section">
@@ -469,7 +437,6 @@
       <a href="#loading">Погрузка</a>
       <a href="#prices">Стоимость</a>
       <a href="#about">О нас</a>
-      <a href="#fleet">Автопарк</a>
       <a href="#faq">Вопросы</a>
     </nav>
     <a class="footer__phone" href="tel:+79262823457">+7 926 282-34-57</a>
