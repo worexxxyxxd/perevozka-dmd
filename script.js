@@ -106,7 +106,7 @@ if ('IntersectionObserver' in window && !reduceMotion) {
 
 // ===== Появление блоков при прокрутке =====
 const revealTargets = document.querySelectorAll(
-  '.section__head, .card3d, .about__text, .steps li, .price-intro, .badges, .contact__info'
+  '.section__head, .card3d, .about__text, .steps li, .price-intro, .badges, .contact__info, .shot'
 );
 if ('IntersectionObserver' in window) {
   revealTargets.forEach((el) => el.classList.add('reveal'));
@@ -116,6 +116,42 @@ if ('IntersectionObserver' in window) {
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   revealTargets.forEach((el) => io.observe(el));
+}
+
+// ===== Автопарк: просмотр фото =====
+const lb = document.getElementById('lightbox');
+const shots = [...document.querySelectorAll('.shot')];
+if (lb && shots.length && typeof lb.showModal === 'function') {
+  const lbImg = lb.querySelector('img');
+  const lbCap = lb.querySelector('figcaption');
+  let cur = 0;
+  const show = (i) => {
+    cur = (i + shots.length) % shots.length;
+    const img = shots[cur].querySelector('img');
+    lbImg.src = img.currentSrc || img.src;
+    lbImg.alt = img.alt;
+    lbCap.textContent = shots[cur].querySelector('.shot__cap').textContent;
+    lbImg.style.animation = 'none'; void lbImg.offsetWidth; lbImg.style.animation = '';
+  };
+  shots.forEach((s, i) => s.addEventListener('click', () => { show(i); lb.showModal(); }));
+  lb.querySelector('.lightbox__prev').addEventListener('click', () => show(cur - 1));
+  lb.querySelector('.lightbox__next').addEventListener('click', () => show(cur + 1));
+  lb.querySelector('.lightbox__close').addEventListener('click', () => lb.close());
+  // клик мимо фото и кнопок закрывает
+  lb.addEventListener('click', (e) => { if (e.target === lb || e.target.classList.contains('lightbox__fig')) lb.close(); });
+  lb.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') show(cur - 1);
+    if (e.key === 'ArrowRight') show(cur + 1);
+  });
+  // свайп на телефоне
+  let x0 = null;
+  lb.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', (e) => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
+    x0 = null;
+  });
 }
 
 // ===== Заявка → WhatsApp =====
